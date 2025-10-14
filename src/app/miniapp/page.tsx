@@ -12,23 +12,24 @@ export default function MiniAppPage() {
   useEffect(() => {
     const initializeTelegram = () => {
       if (typeof window === 'undefined') {
+        setIsTelegram(true); // Показываем дизайн даже на сервере
         setIsLoading(false);
         return;
       }
 
-      if (!window.Telegram?.WebApp) {
-        setIsLoading(false);
-        return;
-      }
-
+      // Всегда показываем дизайн для тестирования
       try {
-        const tg = window.Telegram.WebApp;
-        tg.ready();
-        tg.expand();
+        if (window.Telegram?.WebApp) {
+          const tg = window.Telegram.WebApp;
+          tg.ready();
+          tg.expand();
+          console.log('Telegram WebApp detected:', tg);
+        }
         setIsTelegram(true);
         setIsLoading(false);
       } catch (error) {
         console.error('Error initializing Telegram WebApp:', error);
+        setIsTelegram(true); // Показываем дизайн даже при ошибке
         setIsLoading(false);
       }
     };
