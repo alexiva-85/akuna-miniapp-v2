@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 export const dynamic = 'force-dynamic';
-// Force cache clear - Tue Oct 14 20:04:00 +07 2025
+// Force cache clear - Tue Oct 14 20:10:00 +07 2025 - FIXED LOGIC
 
 export default function MiniAppPage() {
   const [isTelegram, setIsTelegram] = useState(false);
