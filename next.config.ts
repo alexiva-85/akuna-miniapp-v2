@@ -15,6 +15,24 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // No-cache headers for critical paths
+        source: '/(miniapp|dashboard|api/health)(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, no-cache, must-revalidate, proxy-revalidate'
+          },
+          {
+            key: 'Pragma',
+            value: 'no-cache'
+          },
+          {
+            key: 'Expires',
+            value: '0'
+          }
+        ]
+      },
+      {
         // Telegram WebView embedding policy for /miniapp route
         source: '/miniapp(.*)',
         headers: [

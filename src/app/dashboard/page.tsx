@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { MobileLayout } from '@/components/MobileLayout';
+import { Button } from '@/components/ui/button';
 
 export const dynamic = 'force-dynamic';
 
@@ -28,291 +30,114 @@ export default function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div style={{
-        minHeight: '100vh',
-        backgroundColor: '#ffffff',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{
-            width: '32px',
-            height: '32px',
-            border: '2px solid #3b82f6',
-            borderTop: '2px solid transparent',
-            borderRadius: '50%',
-            animation: 'spin 1s linear infinite',
-            margin: '0 auto 16px'
-          }}></div>
-          <p style={{ color: '#6b7280' }}>Loading Dashboard...</p>
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading Dashboard...</p>
         </div>
       </div>
     );
   }
 
+  const transactions = [
+    { type: 'deposit', amount: '+2 000฿', date: 'Yesterday, 14:02', usd: '~61$', icon: '↓' },
+    { type: 'withdraw', amount: '-1 800฿', date: '12.09.2025, 14:23', usd: '~56$', icon: '↑' },
+    { type: 'payment', amount: '-1 000฿', date: '10.09.2025, 13:12', usd: '~44$', icon: '📱' },
+  ];
+
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
-      {/* Header */}
-      <div style={{
-        backgroundColor: '#ffffff',
-        borderBottom: '1px solid #e5e7eb',
-        padding: '16px 24px'
-      }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between'
-        }}>
-          <div>
-            <h1 style={{
-              fontSize: '18px',
-              fontWeight: '600',
-              color: '#111827',
-              margin: 0
-            }}>Akuna Pay</h1>
-            <p style={{
-              fontSize: '14px',
-              color: '#6b7280',
-              margin: 0
-            }}>Mini-App Dashboard</p>
+    <MobileLayout showClose={false}>
+      <div className="flex-1 flex flex-col px-6 py-4">
+        {/* User Info */}
+        <div className="flex items-center gap-3 p-4 bg-card rounded-2xl mb-4 cursor-pointer hover:bg-card/80 transition-colors">
+          <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
+            <span className="text-muted-foreground">👤</span>
           </div>
-          <div style={{
-            width: '32px',
-            height: '32px',
-            backgroundColor: '#dbeafe',
-            borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-            <span style={{ fontSize: '14px' }}>👤</span>
+          <div className="flex-1">
+            <div className="text-base font-semibold text-foreground">Alivia de Franz</div>
+            <div className="text-sm text-muted-foreground">Lite Account</div>
           </div>
         </div>
-      </div>
 
-      {/* Main Content */}
-      <div style={{ padding: '24px' }}>
         {/* Balance Card */}
-        <div style={{
-          backgroundColor: '#ffffff',
-          border: '1px solid #e5e7eb',
-          borderRadius: '16px',
-          padding: '24px',
-          marginBottom: '24px',
-          boxShadow: '0 1px 2px 0 rgb(0 0 0 / 0.05)'
-        }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            marginBottom: '16px'
-          }}>
-            <span style={{ fontSize: '24px' }}>🇹🇭</span>
-            <span style={{
-              fontWeight: '500',
-              color: '#111827'
-            }}>THB Account</span>
+        <div className="p-6 bg-card rounded-2xl mb-6 border border-border">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-4xl">🇹🇭</span>
+            <span className="text-base font-medium text-foreground">THB Account</span>
           </div>
           
-          <div style={{ marginBottom: '24px' }}>
-            <div style={{
-              fontSize: '30px',
-              fontWeight: '700',
-              color: '#111827',
-              marginBottom: '4px'
-            }}>฿52,814.17</div>
-            <div style={{
-              fontSize: '14px',
-              color: '#6b7280'
-            }}>~$1,660.03</div>
+          <div className="mb-6">
+            <div className="text-4xl font-bold text-foreground mb-1">฿52 814,17</div>
+            <div className="text-sm text-muted-foreground">~$1 660,03</div>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '12px'
-          }}>
-            <button style={{
-              backgroundColor: '#3b82f6',
-              color: '#ffffff',
-              height: '48px',
-              borderRadius: '12px',
-              fontWeight: '500',
-              border: 'none',
-              cursor: 'pointer'
-            }}>
+          <div className="flex gap-3">
+            <Button 
+              className="flex-1 h-12 rounded-xl gap-2"
+              onClick={() => console.log('Navigate to deposit')}
+            >
+              <span>↓</span>
               Deposit
-            </button>
-            <button style={{
-              backgroundColor: '#f3f4f6',
-              color: '#374151',
-              height: '48px',
-              borderRadius: '12px',
-              fontWeight: '500',
-              border: 'none',
-              cursor: 'pointer'
-            }}>
+            </Button>
+            <Button 
+              variant="outline"
+              className="flex-1 h-12 rounded-xl gap-2"
+              onClick={() => console.log('Navigate to withdraw')}
+            >
+              <span>↑</span>
               Withdraw
-            </button>
+            </Button>
           </div>
         </div>
 
         {/* Quick Actions */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '16px',
-          marginBottom: '24px'
-        }}>
-          <button style={{
-            backgroundColor: '#ffffff',
-            border: '1px solid #e5e7eb',
-            borderRadius: '12px',
-            padding: '16px',
-            textAlign: 'center',
-            cursor: 'pointer'
-          }}>
-            <div style={{
-              width: '48px',
-              height: '48px',
-              backgroundColor: '#dbeafe',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 12px'
-            }}>
-              <span style={{ fontSize: '20px' }}>💳</span>
-            </div>
-            <div style={{
-              fontWeight: '500',
-              color: '#111827'
-            }}>Pay</div>
-          </button>
-          
-          <button style={{
-            backgroundColor: '#ffffff',
-            border: '1px solid #e5e7eb',
-            borderRadius: '12px',
-            padding: '16px',
-            textAlign: 'center',
-            cursor: 'pointer'
-          }}>
-            <div style={{
-              width: '48px',
-              height: '48px',
-              backgroundColor: '#dbeafe',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 12px'
-            }}>
-              <span style={{ fontSize: '20px' }}>📱</span>
-            </div>
-            <div style={{
-              fontWeight: '500',
-              color: '#111827'
-            }}>QR Pay</div>
-          </button>
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          <Button 
+            variant="outline"
+            className="h-20 flex flex-col gap-2 rounded-xl"
+            onClick={() => console.log('Navigate to pay')}
+          >
+            <span className="text-2xl">💳</span>
+            <span className="text-sm font-medium">Pay</span>
+          </Button>
+          <Button 
+            variant="outline"
+            className="h-20 flex flex-col gap-2 rounded-xl"
+            onClick={() => console.log('Navigate to QR pay')}
+          >
+            <span className="text-2xl">📱</span>
+            <span className="text-sm font-medium">QR Pay</span>
+          </Button>
         </div>
 
         {/* Recent Transactions */}
-        <div style={{
-          backgroundColor: '#ffffff',
-          border: '1px solid #e5e7eb',
-          borderRadius: '16px',
-          padding: '24px',
-          boxShadow: '0 1px 2px 0 rgb(0 0 0 / 0.05)'
-        }}>
-          <h3 style={{
-            fontWeight: '600',
-            color: '#111827',
-            marginBottom: '16px',
-            margin: 0
-          }}>Recent Transactions</h3>
+        <div className="bg-card rounded-2xl p-6 border border-border">
+          <h3 className="text-lg font-semibold text-foreground mb-4">Recent Transactions</h3>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              padding: '12px',
-              backgroundColor: '#f9fafb',
-              borderRadius: '8px'
-            }}>
-              <div style={{
-                width: '40px',
-                height: '40px',
-                backgroundColor: '#dcfce7',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <span style={{ color: '#16a34a' }}>↓</span>
+          <div className="space-y-3">
+            {transactions.map((transaction, index) => (
+              <div key={index} className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                  transaction.type === 'deposit' ? 'bg-green-100' : 
+                  transaction.type === 'withdraw' ? 'bg-red-100' : 'bg-blue-100'
+                }`}>
+                  <span className={`text-sm ${
+                    transaction.type === 'deposit' ? 'text-green-600' : 
+                    transaction.type === 'withdraw' ? 'text-red-600' : 'text-blue-600'
+                  }`}>
+                    {transaction.icon}
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <div className="font-medium text-foreground">{transaction.amount}</div>
+                  <div className="text-sm text-muted-foreground">{transaction.date}</div>
+                </div>
+                <div className="text-sm text-muted-foreground">{transaction.usd}</div>
               </div>
-              <div style={{ flex: 1 }}>
-                <div style={{
-                  fontWeight: '500',
-                  color: '#111827'
-                }}>+2,000฿</div>
-                <div style={{
-                  fontSize: '14px',
-                  color: '#6b7280'
-                }}>Yesterday, 14:02</div>
-              </div>
-              <div style={{
-                fontSize: '14px',
-                color: '#6b7280'
-              }}>~$61</div>
-            </div>
-            
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              padding: '12px',
-              backgroundColor: '#f9fafb',
-              borderRadius: '8px'
-            }}>
-              <div style={{
-                width: '40px',
-                height: '40px',
-                backgroundColor: '#fee2e2',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <span style={{ color: '#dc2626' }}>↑</span>
-              </div>
-              <div style={{ flex: 1 }}>
-                <div style={{
-                  fontWeight: '500',
-                  color: '#111827'
-                }}>-1,800฿</div>
-                <div style={{
-                  fontSize: '14px',
-                  color: '#6b7280'
-                }}>12.09.2025, 14:23</div>
-              </div>
-              <div style={{
-                fontSize: '14px',
-                color: '#6b7280'
-              }}>~$56</div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
-    </div>
+    </MobileLayout>
   );
 }
