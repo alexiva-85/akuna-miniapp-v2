@@ -1,0 +1,134 @@
+name: Smoke Tests
+
+on:
+  push:
+    branches: [main]
+  deployment_status:
+    types: [success]
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Smoke test /api/health
+      run: |
+        echo "Testing /api/health endpoint..."
+        response=$(curl -s -w "%{http_code}|%{content_type}|%{header_json}" https://akuna-miniapp-v2.vercel.app/api/health)
+        status=$(echo $response | cut -d'|' -f1)
+        content_type=$(echo $response | cut -d'|' -f2)
+        headers=$(echo $response | cut -d'|' -f3)
+        
+        echo "Status: $status"
+        echo "Content-Type: $content_type"
+        echo "Headers: $headers"
+        
+        if [ "$status" != "200" ]; then
+          echo "❌ /api/health returned $status, expected 200"
+          exit 1
+        fi
+        
+        if [[ "$content_type" != *"application/json"* ]]; then
+          echo "❌ /api/health content-type is $content_type, expected application/json"
+          exit 1
+        fi
+        
+        if [[ "$headers" != *"x-vercel-id"* ]]; then
+          echo "❌ /api/health missing x-vercel-id header"
+          exit 1
+        fi
+        
+        echo "✅ /api/health passed"
+        
+    - name: Smoke test /dashboard
+      run: |
+        echo "Testing /dashboard endpoint..."
+        response=$(curl -s -w "%{http_code}|%{content_type}|%{header_json}" https://akuna-miniapp-v2.vercel.app/dashboard)
+        status=$(echo $response | cut -d'|' -f1)
+        content_type=$(echo $response | cut -d'|' -f2)
+        headers=$(echo $response | cut -d'|' -f3)
+        
+        echo "Status: $status"
+        echo "Content-Type: $content_type"
+        echo "Headers: $headers"
+        
+        if [ "$status" != "200" ]; then
+          echo "❌ /dashboard returned $status, expected 200"
+          exit 1
+        fi
+        
+        if [[ "$headers" != *"x-vercel-id"* ]]; then
+          echo "❌ /dashboard missing x-vercel-id header"
+          exit 1
+        fi
+        
+        if [[ "$headers" != *"content-security-policy"* ]]; then
+          echo "❌ /dashboard missing CSP header"
+          exit 1
+        fi
+        
+        echo "✅ /dashboard passed"
+        
+    - name: Smoke test /miniapp
+      run: |
+        echo "Testing /miniapp endpoint..."
+        response=$(curl -s -w "%{http_code}|%{content_type}|%{header_json}" https://akuna-miniapp-v2.vercel.app/miniapp)
+        status=$(echo $response | cut -d'|' -f1)
+        content_type=$(echo $response | cut -d'|' -f2)
+        headers=$(echo $response | cut -d'|' -f3)
+        
+        echo "Status: $status"
+        echo "Content-Type: $content_type"
+        echo "Headers: $headers"
+        
+        if [ "$status" != "200" ]; then
+          echo "❌ /miniapp returned $status, expected 200"
+          exit 1
+        fi
+        
+        if [[ "$headers" != *"x-vercel-id"* ]]; then
+          echo "❌ /miniapp missing x-vercel-id header"
+          exit 1
+        fi
+        
+        if [[ "$headers" != *"content-security-policy"* ]]; then
+          echo "❌ /miniapp missing CSP header"
+          exit 1
+        fi
+        
+        echo "✅ /miniapp passed"
+        
+    - name: Smoke test / (root redirect)
+      run: |
+        echo "Testing / (root) endpoint..."
+        response=$(curl -s -w "%{http_code}|%{location}|%{header_json}" https://akuna-miniapp-v2.vercel.app/)
+        status=$(echo $response | cut -d'|' -f1)
+        location=$(echo $response | cut -d'|' -f2)
+        headers=$(echo $response | cut -d'|' -f3)
+        
+        echo "Status: $status"
+        echo "Location: $location"
+        echo "Headers: $headers"
+        
+        if [ "$status" != "307" ]; then
+          echo "❌ / returned $status, expected 307"
+          exit 1
+        fi
+        
+        if [[ "$location" != *"/dashboard"* ]]; then
+          echo "❌ / redirect location is $location, expected /dashboard"
+          exit 1
+        fi
+        
+        echo "✅ / (root redirect) passed"
+        
+    - name: All smoke tests passed
+      run: |
+        echo "🎉 All smoke tests passed successfully!"
+        echo "✅ /api/health - 200 OK (JSON)"
+        echo "✅ /dashboard - 200 OK (UI)"
+        echo "✅ /miniapp - 200 OK (WebView)"
+        echo "✅ / - 307 Redirect to /dashboard"

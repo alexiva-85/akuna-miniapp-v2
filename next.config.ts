@@ -29,6 +29,10 @@ const nextConfig: NextConfig = {
           {
             key: 'Expires',
             value: '0'
+          },
+          {
+            key: 'Surrogate-Control',
+            value: 'no-store'
           }
         ]
       },
