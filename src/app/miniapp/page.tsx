@@ -47,30 +47,31 @@ export default function MiniAppPage() {
     );
   }
 
-  if (!isTelegram) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center p-4">
-        <div className="max-w-md w-full text-center">
-          <div className="mb-6">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🚀</span>
-            </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Akuna Pay Mini-App</h1>
-            <p className="text-gray-600">
-              This Mini-App is designed to work within Telegram. 
-              Please open it through the @AkunaPay_Bot bot.
-            </p>
-          </div>
-          <div className="bg-gray-50 border rounded-lg p-4">
-            <p className="text-sm text-gray-600">
-              To use this Mini-App, open Telegram and search for @AkunaPay_Bot, 
-              then tap "Open App" to launch the Mini-App.
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // Временно убираем fallback для тестирования дизайна
+  // if (!isTelegram) {
+  //   return (
+  //     <div className="min-h-screen bg-white flex items-center justify-center p-4">
+  //       <div className="max-w-md w-full text-center">
+  //         <div className="mb-6">
+  //           <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+  //             <span className="text-2xl">🚀</span>
+  //           </div>
+  //           <h1 className="text-2xl font-bold text-gray-900 mb-2">Akuna Pay Mini-App</h1>
+  //           <p className="text-gray-600">
+  //             This Mini-App is designed to work within Telegram. 
+  //             Please open it through the @AkunaPay_Bot bot.
+  //           </p>
+  //         </div>
+  //         <div className="bg-gray-50 border rounded-lg p-4">
+  //           <p className="text-sm text-gray-600">
+  //             To use this Mini-App, open Telegram and search for @AkunaPay_Bot, 
+  //             then tap "Open App" to launch the Mini-App.
+  //           </p>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="min-h-screen bg-white">
