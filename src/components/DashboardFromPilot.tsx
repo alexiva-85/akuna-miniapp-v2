@@ -22,8 +22,8 @@ export default function DashboardFromPilot() {
       }
     }
     
-    const timer = setTimeout(() => setIsLoading(false), 100);
-    return () => clearTimeout(timer);
+    // Убираем задержку для production
+    setIsLoading(false);
   }, []);
 
   if (isLoading) {
@@ -150,3 +150,4 @@ export default function DashboardFromPilot() {
     </MobileLayout>
   );
 }
+
