@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
+// Force cache clear - Tue Oct 14 20:25:00 +07 2025
 
 export async function GET() {
   return NextResponse.json(
