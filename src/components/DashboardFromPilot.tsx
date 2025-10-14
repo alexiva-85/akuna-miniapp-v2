@@ -5,7 +5,7 @@ import { MobileLayout } from '@/components/MobileLayout';
 import { Button } from '@/components/ui/button';
 
 export default function DashboardFromPilot() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false); // Убираем loading state полностью
 
   useEffect(() => {
     // Инициализация Telegram WebApp
@@ -21,21 +21,7 @@ export default function DashboardFromPilot() {
         console.error('Error initializing Telegram WebApp:', error);
       }
     }
-    
-    // Убираем задержку для production
-    setIsLoading(false);
   }, []);
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-muted-foreground">Loading Dashboard...</p>
-        </div>
-      </div>
-    );
-  }
 
   const transactions = [
     { type: 'deposit', amount: '+2 000฿', date: 'Yesterday, 14:02', usd: '~61$', icon: '↓' },
