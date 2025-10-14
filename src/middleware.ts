@@ -4,9 +4,9 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Bypass critical paths - no middleware interference
+  // Bypass ALL API routes - no middleware interference
   if (
-    pathname.startsWith('/api/health') ||
+    pathname.startsWith('/api/') ||
     pathname.startsWith('/miniapp') ||
     pathname.startsWith('/dashboard') ||
     pathname.startsWith('/_next') ||
@@ -28,13 +28,13 @@ export const config = {
   matcher: [
     /*
      * Match all request paths except for the ones starting with:
-     * - api/health (health check)
+     * - api/ (all API routes)
      * - miniapp (telegram mini-app)
      * - dashboard (main dashboard)
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!api/health|miniapp|dashboard|_next/static|_next/image|favicon.ico|static).*)',
+    '/((?!api/|miniapp|dashboard|_next/static|_next/image|favicon.ico|static).*)',
   ],
 };
