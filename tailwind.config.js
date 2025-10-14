@@ -8,9 +8,17 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './external/akuna-pay-pilot/**/*.{js,ts,jsx,tsx,mdx}',
+    './external/akuna-pay-pilot/src/**/*.{js,ts,jsx,tsx,mdx}',
+    './external/akuna-pay-pilot/components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   prefix: "",
   safelist: [
+    // Дизайн-система классы из akuna-pay-pilot
+    { pattern: /(bg|text|border)-(card|muted|primary|foreground)$/ },
+    { pattern: /rounded-(md|lg|xl|2xl)$/ },
+    { pattern: /^(h|w)-(10|11|12|14|16)$/ },
+    { pattern: /^p(x|y)?-(0|2|3|4|6|8)$/ },
+    // Расширенные паттерны
     { pattern: /(bg|text|border)-(primary|secondary|muted|card|foreground)$/ },
     { pattern: /(rounded|shadow)(-|$).*/ },
     { pattern: /^(p|px|py|m|mx|my)-(0|1|2|3|4|6|8|12)$/ },
