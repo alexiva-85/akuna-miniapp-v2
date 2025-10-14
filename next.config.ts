@@ -33,8 +33,8 @@ const nextConfig: NextConfig = {
         ]
       },
       {
-        // Telegram WebView embedding policy for /miniapp route
-        source: '/miniapp(.*)',
+        // Telegram WebView embedding policy for /miniapp and /dashboard routes
+        source: '/(miniapp|dashboard)(.*)',
         headers: [
           {
             key: 'Content-Security-Policy',
