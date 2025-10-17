@@ -30,3 +30,4 @@ export function MobileLayout({ children, showClose = false }: MobileLayoutProps)
     </div>
   );
 }
+
