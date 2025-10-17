@@ -1,40 +1,35 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+const ALLOW_ORIGINS = new Set(['https://akuna-pay-pilot.lovable.app']);
 
-  // Bypass ALL API routes - no middleware interference
-  if (
-    pathname.startsWith('/api/') ||
-    pathname.startsWith('/miniapp') ||
-    pathname.startsWith('/dashboard') ||
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/favicon.ico') ||
-    pathname.startsWith('/static')
-  ) {
-    return NextResponse.next();
-  }
-
-  // Root redirect to dashboard
-  if (pathname === '/') {
-    return NextResponse.redirect(new URL('/dashboard', request.url), 307);
-  }
-
-  return NextResponse.next();
+function corsHeaders(origin?: string) {
+  const allow = origin && ALLOW_ORIGINS.has(origin) ? origin : 'null';
+  return {
+    'Access-Control-Allow-Origin': allow,
+    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Access-Control-Max-Age': '86400',
+  };
 }
 
+export function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+  if (!pathname.startsWith('/api')) return NextResponse.next();
+
+  const origin = req.headers.get('origin') ?? undefined;
+
+  // Preflight
+  if (req.method === 'OPTIONS') {
+    return new NextResponse(null, { status: 200, headers: corsHeaders(origin) });
+  }
+
+  // Pass-through but ensure CORS on responses (set in route too; this is extra safety)
+  const res = NextResponse.next();
+  Object.entries(corsHeaders(origin)).forEach(([k, v]) => res.headers.set(k, v));
+  return res;
+}
+
+// apply only to API
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api/ (all API routes)
-     * - miniapp (telegram mini-app)
-     * - dashboard (main dashboard)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api/|miniapp|dashboard|_next/static|_next/image|favicon.ico|static).*)',
-  ],
+  matcher: ['/api/:path*'],
 };
