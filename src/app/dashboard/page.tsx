@@ -1,7 +1,10 @@
-import DashboardFromPilot from '@/components/DashboardFromPilot';
+'use client';
 
-export const dynamic = 'force-dynamic';
+import dynamic from 'next/dynamic';
 
-export default function DashboardPage() {
-  return <DashboardFromPilot />;
-}
+const ExternalDashboard = dynamic(() => import('./_external-dashboard'), {
+  ssr: false,
+  loading: () => <div>Loading...</div>
+});
+
+export default ExternalDashboard;

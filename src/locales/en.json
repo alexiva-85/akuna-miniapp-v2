@@ -1,0 +1,366 @@
+{
+  "common": {
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "back": "Back",
+    "close": "Close",
+    "confirm": "Confirm",
+    "save": "Save",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "home": "Home",
+    "seeAll": "See all",
+    "tryAgain": "Try again",
+    "support": "Support"
+  },
+  "auth": {
+    "welcome": "Akuna Pay",
+    "description": "Pay in Thailand Quickly and Safely.\nYour financial travel assistant: Deposit, Pay, and Withdraw funds",
+    "createAccount": "Create Account",
+    "haveAccount": "I have an Account",
+    "termsText": "By continuing, you agree to",
+    "termsLink": "Terms & Privacy",
+    "termsLinkFull": "Terms of Use and Privacy Policy",
+    "akuna": "Akuna",
+    "loginTitle": "Enter your phone number",
+    "loginDescription": "An authorization code will be sent to the specified number",
+    "phoneLabel": "Phone number",
+    "phoneInvalid": "Enter a valid phone number",
+    "otpTitle": "Enter the Code",
+    "otpDescription": "Enter the code from SMS",
+    "otpCodeSent": "The code was sent to the number",
+    "codeSent": "Code sent",
+    "otpPlaceholder": "Enter code",
+    "otpResend": "Resend",
+    "otpTimer": "in {{seconds}}s",
+    "loginSuccess": "Login successful",
+    "loginError": "Login error",
+    "otp": {
+      "title": "Login Confirmation",
+      "tab": {
+        "phone": "Phone",
+        "email": "Email"
+      },
+      "phone": {
+        "hint": "We will send an SMS code to the specified number"
+      },
+      "email": {
+        "hint": "We will send a code to your email"
+      },
+      "send": "Send Code",
+      "change": {
+        "method": "Different method"
+      },
+      "code": {
+        "title": "Enter Code",
+        "sent": {
+          "to": "Code sent to {{target}}"
+        },
+        "confirm": "Confirm",
+        "resend": "Resend ({{seconds}} s)"
+      }
+    }
+  },
+  "legal": {
+    "title": "Legal Information",
+    "description": "By continuing, you accept Akuna's terms and policies.",
+    "checkbox": "I agree to the terms",
+    "links": "Terms • Privacy • AML/KYC/Refund",
+    "saved": "Saved",
+    "checkRequired": "Please check the agreement",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "aml": "AML/KYC Policy",
+    "refund": "Refund Policy",
+    "security": "Security & Safety",
+    "note": "Documents will open in an external window."
+  },
+  "kyc": {
+    "startTitle": "Start Verification",
+    "startDescription": "Passport/ID, selfie, 3–5 minutes.",
+    "status": "Your status:",
+    "statusNotStarted": "Not started",
+    "statusPending": "Under review",
+    "statusApproved": "Approved",
+    "statusRejected": "Rejected",
+    "startButton": "Start KYC",
+    "whyLink": "Why is this needed?",
+    "pendingTitle": "Your documents are being reviewed",
+    "pendingDescription": "This usually takes up to 5 minutes.",
+    "pendingHint": "We will notify you of the result",
+    "rejectedTitle": "KYC verification failed",
+    "rejectedReason": "Document is not readable",
+    "supportLink": "Support",
+    "started": "KYC started",
+    "pending": "Checking… we'll notify you",
+    "failed": "Error, please try later",
+    "retried": "New attempt created"
+  },
+  "dashboard": {
+    "balance": "Balance",
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "transactionHistory": "Transaction History",
+    "pay": "Pay",
+    "referrals": "Referrals"
+  },
+  "account": {
+    "title": "Account",
+    "liteAccount": "Lite Account",
+    "proAccount": "Pro Account",
+    "akunaPro": "Akuna Pro",
+    "language": "Language",
+    "notifications": "Notifications",
+    "legalInfo": "Legal Info",
+    "support": "Support",
+    "notificationsOff": "OFF",
+    "notificationsOn": "ON"
+  },
+  "transactions": {
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "payment": "Payment",
+    "yesterday": "Yesterday"
+  },
+  "history": {
+    "type": "Type",
+    "currency": "Currency",
+    "date": "Date",
+    "all": "All",
+    "newAtFirst": "New at first",
+    "oldAtFirst": "Old at first"
+  },
+  "payment": {
+    "title": "Payment",
+    "scanQR": "Scan QR Code",
+    "enterAmount": "Enter amount"
+  },
+  "deposit": {
+    "title": "Deposit",
+    "methods": {
+      "russianCard": "Russian Bank Card",
+      "russianCardDesc": "MИР, Visa, MasterCard",
+      "internationalCard": "International Bank Card",
+      "internationalCardDesc": "Visa, MasterCard",
+      "crypto": "Crypto Wallet",
+      "cryptoDesc": "USDT, TON"
+    },
+    "card": {
+      "title": "Deposit by Card",
+      "subtitle": "Payment is processed by an external provider. It's safe.",
+      "providers": {
+        "tbank": {
+          "title": "T-Bank",
+          "desc": "Visa/Mastercard/MIR cards"
+        },
+        "sbp": {
+          "title": "SBP",
+          "desc": "Transfer via SBP"
+        }
+      },
+      "fees": "Learn more about fees",
+      "disclaimer": "You will be redirected to the payment provider's website",
+      "toast": {
+        "redirect": "Redirecting to provider…",
+        "success": "Payment accepted",
+        "pending": "Request created. Awaiting confirmation",
+        "failed": "Payment failed"
+      }
+    },
+    "crypto": {
+      "currency": "Currency",
+      "network": "Network",
+      "selectCurrency": "Select",
+      "selectNetwork": "Select network",
+      "confirm": "Confirm",
+      "address": "Address",
+      "copied": "Copied",
+      "warning": "Send funds exclusively in accordance with the specified banking details",
+      "finish": "Finish",
+      "hint": "Send only {{currency}} on {{network}} network. Crediting time depends on the network."
+    },
+    "waiting": {
+      "title": "Payment not detected yet",
+      "description": "Send only {{currency}} on {{network}} network. Crediting time depends on the network."
+    },
+    "success": {
+      "title": "Deposit Successful",
+      "amount": "Amount",
+      "network": "Network",
+      "address": "Address"
+    },
+    "toast": {
+      "credited": "Credited {{amount}} {{currency}}"
+    },
+    "actions": {
+      "refresh": "Refresh Status",
+      "support": "Support",
+      "goHome": "Go Home"
+    }
+  },
+  "withdraw": {
+    "title": "Withdraw",
+    "currency": "Currency",
+    "amount": "Amount",
+    "methods": {
+      "russianCard": "Russian Bank Card",
+      "russianCardDesc": "MIR, Visa, MasterCard",
+      "internationalCard": "International Bank Card",
+      "internationalCardDesc": "Visa, MasterCard"
+    },
+    "fee": "Fee",
+    "processingTime": "Processing time: 1-3 business day",
+    "selectCurrency": "Select currency",
+    "enterAmount": "Enter amount"
+  },
+  "pay": {
+    "scanQR": {
+      "title": "Scan QR Code",
+      "scanArea": "Point camera at QR code",
+      "gallery": "Choose from gallery",
+      "flashlight": "Flashlight"
+    },
+    "amount": {
+      "title": "Enter Amount",
+      "placeholder": "0.00",
+      "hint": {
+        "recipient": "Recipient"
+      },
+      "empty": "Enter amount",
+      "min": "Minimum amount is 1 THB",
+      "format": "Invalid amount format"
+    },
+    "confirm": {
+      "title": "Confirm Payment",
+      "recipient": "Recipient",
+      "amount": "Amount",
+      "fee": "Fee",
+      "total": "Total",
+      "source": "Source",
+      "disclaimer": "Payment is processed according to PromptPay rules. Please verify recipient and amount before confirming."
+    },
+    "actions": {
+      "continue": "Continue",
+      "pay": "Pay",
+      "cancel": "Cancel",
+      "edit": "Edit"
+    },
+    "qr": {
+      "unsupported": "Unsupported QR code"
+    },
+    "submit": {
+      "sending": "Sending payment…",
+      "success": "Payment successful",
+      "pending": "Request created. Awaiting confirmation",
+      "failed": "Payment failed"
+    },
+    "otp": {
+      "phone": {
+        "invalid": "Enter a valid phone number"
+      },
+      "email": {
+        "invalid": "Enter a valid email"
+      },
+      "sent": "Code sent",
+      "rate": "Too often. Try again later",
+      "code": {
+        "invalid": "Invalid code. Attempts left: {{count}}",
+        "expired": "Code expired. Request a new one"
+      }
+    }
+  },
+  "language": {
+    "title": "Language",
+    "english": "English",
+    "englishGreeting": "Hello, world!",
+    "russian": "Russian",
+    "russianGreeting": "Привет, мир!"
+  },
+  "actions": {
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "pay": "Pay",
+    "scan": "Scan",
+    "confirm": "Confirm"
+  },
+  "errors": {
+    "generic": "An error occurred",
+    "network": "Network error",
+    "validation": "Invalid data"
+  },
+  "transactionDetail": {
+    "transactionType": "Transaction Type",
+    "method": "Method",
+    "cryptoDeposit": "Crypto Deposit",
+    "amount": "Amount",
+    "status": "Status",
+     "success": "Success"
+  },
+  "referrals": {
+    "yourReferrals": "Your Referrals",
+    "yourBonuses": "Your Bonuses",
+    "howItWorks": "How it works",
+    "step1": {
+      "title": "Invite Friends",
+      "description": "Share your invitation link"
+    },
+    "step2": {
+      "title": "Refer a Friend",
+      "description": "Friend signs up and completes KYC"
+    },
+    "step3": {
+      "title": "Bonus",
+      "description": "You both get a bonus"
+    },
+    "shareLink": "Share Link",
+    "shareTitle": "Join Akuna Pay",
+    "shareText": "Use my referral link to sign up for Akuna Pay",
+    "linkCopied": "Link copied"
+  },
+  "menu": {
+    "pro": {
+      "title": "Akuna Pro",
+      "soon": "Soon",
+      "subtitle": "Concierge service (in development)",
+      "toast": "Coming soon: Akuna Pro is in development"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "subtitle": "Choose which alerts to receive",
+    "security": "Security",
+    "security.desc": "Login codes and new device sign-in",
+    "ops": "Operations",
+    "ops.desc": "Payments and deposits (success/pending)",
+    "telegram": "Telegram",
+    "telegram.desc": "Receive notifications in Telegram",
+    "email": "Email",
+    "email.desc": "Receive notifications via email"
+  },
+  "actions": {
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "pay": "Pay",
+    "scan": "Scan",
+    "confirm": "Confirm",
+    "save": "Save",
+    "back": "Back"
+  },
+  "toast": {
+    "saved": "Saved",
+    "nochanges": "No changes",
+    "error": "Failed to save",
+    "openlink.error": "Failed to open link"
+  },
+  "support": {
+    "title": "Support",
+    "telegram": "Contact via Telegram",
+    "telegram.desc": "Opens our support chat",
+    "email": "Send an email",
+    "email.desc": "support@akuna-ex.online",
+    "faq": "FAQ",
+    "faq.desc": "Frequently asked questions",
+    "hours": "We respond 10:00–19:00 (GMT+7)"
+  }
+}

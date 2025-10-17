@@ -1,0 +1,366 @@
+{
+  "common": {
+    "continue": "Продолжить",
+    "cancel": "Отменить",
+    "back": "Назад",
+    "close": "Закрыть",
+    "confirm": "Подтвердить",
+    "save": "Сохранить",
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "success": "Успешно",
+    "home": "На главную",
+    "seeAll": "Смотреть все",
+    "tryAgain": "Попробовать снова",
+    "support": "Поддержка"
+  },
+  "auth": {
+    "welcome": "Akuna Pay",
+    "description": "Платите в Таиланде быстро и безопасно.\nВаш финансовый помощник для путешествий: депозит, платежи и вывод средств",
+    "createAccount": "Создать аккаунт",
+    "haveAccount": "У меня есть аккаунт",
+    "termsText": "Продолжая, вы соглашаетесь с",
+    "termsLink": "Terms & Privacy",
+    "termsLinkFull": "Условиями использования и Политикой конфиденциальности",
+    "akuna": "Akuna",
+    "loginTitle": "Введите ваш номер телефона",
+    "loginDescription": "Код авторизации будет отправлен на указанный номер",
+    "phoneLabel": "Номер телефона",
+    "phoneInvalid": "Введите корректный номер телефона",
+    "otpTitle": "Введите код",
+    "otpDescription": "Введите код из SMS",
+    "otpCodeSent": "Код был отправлен на номер",
+    "codeSent": "Код отправлен",
+    "otpPlaceholder": "Введите код",
+    "otpResend": "Отправить повторно",
+    "otpTimer": "через {{seconds}}с",
+    "loginSuccess": "Успешный вход",
+    "loginError": "Ошибка входа",
+    "otp": {
+      "title": "Подтверждение входа",
+      "tab": {
+        "phone": "Телефон",
+        "email": "Email"
+      },
+      "phone": {
+        "hint": "Мы отправим SMS-код на указанный номер"
+      },
+      "email": {
+        "hint": "Мы отправим код на почту"
+      },
+      "send": "Отправить код",
+      "change": {
+        "method": "Другой способ"
+      },
+      "code": {
+        "title": "Введите код",
+        "sent": {
+          "to": "Код отправлен на {{target}}"
+        },
+        "confirm": "Подтвердить",
+        "resend": "Отправить снова ({{seconds}} с)"
+      }
+    }
+  },
+  "legal": {
+    "title": "Правовая информация",
+    "description": "Продолжая, вы принимаете условия и политики Akuna.",
+    "checkbox": "Согласен с условиями",
+    "links": "Terms • Privacy • AML/KYC/Refund",
+    "saved": "Сохранено",
+    "checkRequired": "Отметьте согласие",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "aml": "AML/KYC Policy",
+    "refund": "Refund Policy",
+    "security": "Security & Safety",
+    "note": "Документы откроются во внешнем окне."
+  },
+  "kyc": {
+    "startTitle": "Начать верификацию",
+    "startDescription": "Паспорт/ID, селфи, 3–5 минут.",
+    "status": "Ваш статус:",
+    "statusNotStarted": "Не начато",
+    "statusPending": "Проверяется",
+    "statusApproved": "Подтверждено",
+    "statusRejected": "Отклонено",
+    "startButton": "Начать KYC",
+    "whyLink": "Зачем это нужно?",
+    "pendingTitle": "Ваши документы проверяются",
+    "pendingDescription": "Обычно это занимает до 5 минут.",
+    "pendingHint": "Мы сообщим результат",
+    "rejectedTitle": "Не удалось пройти KYC",
+    "rejectedReason": "Документ не читается",
+    "supportLink": "Поддержка",
+    "started": "KYC начат",
+    "pending": "Проверяем… уведомим",
+    "failed": "Ошибка, попробуйте позже",
+    "retried": "Новая попытка создана"
+  },
+  "dashboard": {
+    "balance": "Баланс",
+    "deposit": "Пополнить",
+    "withdraw": "Вывести",
+    "transactionHistory": "История транзакций",
+    "pay": "Оплата",
+    "referrals": "Рефералы"
+  },
+  "account": {
+    "title": "Аккаунт",
+    "liteAccount": "Lite Аккаунт",
+    "proAccount": "Pro Аккаунт",
+    "akunaPro": "Akuna Pro",
+    "language": "Язык",
+    "notifications": "Уведомления",
+    "legalInfo": "Правовая информация",
+    "support": "Поддержка",
+    "notificationsOff": "ВЫКЛ",
+    "notificationsOn": "ВКЛ"
+  },
+  "transactions": {
+    "deposit": "Пополнение",
+    "withdraw": "Вывод",
+    "payment": "Платёж",
+    "yesterday": "Вчера"
+  },
+  "history": {
+    "type": "Тип",
+    "currency": "Валюта",
+    "date": "Дата",
+    "all": "Все",
+    "newAtFirst": "Сначала новые",
+    "oldAtFirst": "Сначала старые"
+  },
+  "payment": {
+    "title": "Оплата",
+    "scanQR": "Сканировать QR код",
+    "enterAmount": "Введите сумму"
+  },
+  "deposit": {
+    "title": "Пополнение",
+    "methods": {
+      "russianCard": "Российская банковская карта",
+      "russianCardDesc": "МИР, Visa, MasterCard",
+      "internationalCard": "Международная банковская карта",
+      "internationalCardDesc": "Visa, MasterCard",
+      "crypto": "Криптовалютный кошелёк",
+      "cryptoDesc": "USDT, TON"
+    },
+    "card": {
+      "title": "Пополнить картой",
+      "subtitle": "Оплата проходит у внешнего провайдера. Это безопасно.",
+      "providers": {
+        "tbank": {
+          "title": "Т-банк",
+          "desc": "Карты Visa/Mastercard/МИР"
+        },
+        "sbp": {
+          "title": "СБП",
+          "desc": "Перевод через СБП"
+        }
+      },
+      "fees": "Подробнее о комиссиях",
+      "disclaimer": "Вы будете перенаправлены на сайт платёжного провайдера",
+      "toast": {
+        "redirect": "Переходим к провайдеру…",
+        "success": "Оплата принята",
+        "pending": "Заявка создана. Ожидаем подтверждение",
+        "failed": "Оплата не выполнена"
+      }
+    },
+    "crypto": {
+      "currency": "Валюта",
+      "network": "Сеть",
+      "selectCurrency": "Выберите",
+      "selectNetwork": "Выберите сеть",
+      "confirm": "Подтвердить",
+      "address": "Адрес",
+      "copied": "Скопировано",
+      "warning": "Отправляйте средства строго в соответствии с указанными реквизитами",
+      "finish": "Завершить",
+      "hint": "Отправляйте только {{currency}} в сети {{network}}. Время зачисления зависит от сети."
+    },
+    "waiting": {
+      "title": "Платёж пока не обнаружен",
+      "description": "Отправляйте только {{currency}} в сети {{network}}. Время зачисления зависит от сети."
+    },
+    "success": {
+      "title": "Пополнение успешно",
+      "amount": "Сумма",
+      "network": "Сеть",
+      "address": "Адрес"
+    },
+    "toast": {
+      "credited": "Зачислено {{amount}} {{currency}}"
+    },
+    "actions": {
+      "refresh": "Обновить статус",
+      "support": "Поддержка",
+      "goHome": "На главную"
+    }
+  },
+  "withdraw": {
+    "title": "Вывод средств",
+    "currency": "Валюта",
+    "amount": "Сумма",
+    "methods": {
+      "russianCard": "Российская банковская карта",
+      "russianCardDesc": "МИР, Visa, MasterCard",
+      "internationalCard": "Международная банковская карта",
+      "internationalCardDesc": "Visa, MasterCard"
+    },
+    "fee": "Комиссия",
+    "processingTime": "Время обработки: 1-3 рабочих дня",
+    "selectCurrency": "Выберите валюту",
+    "enterAmount": "Введите сумму"
+  },
+  "pay": {
+    "scanQR": {
+      "title": "Сканировать QR-код",
+      "scanArea": "Наведите камеру на QR-код",
+      "gallery": "Выбрать из галереи",
+      "flashlight": "Фонарик"
+    },
+    "amount": {
+      "title": "Введите сумму",
+      "placeholder": "0.00",
+      "hint": {
+        "recipient": "Получатель"
+      },
+      "empty": "Введите сумму",
+      "min": "Минимальная сумма — 1 THB",
+      "format": "Неверный формат суммы"
+    },
+    "confirm": {
+      "title": "Подтвердите платёж",
+      "recipient": "Получатель",
+      "amount": "Сумма",
+      "fee": "Комиссия",
+      "total": "Итого",
+      "source": "Источник",
+      "disclaimer": "Платёж выполняется согласно правилам PromptPay. Проверяйте получателя и сумму перед подтверждением."
+    },
+    "actions": {
+      "continue": "Продолжить",
+      "pay": "Оплатить",
+      "cancel": "Отмена",
+      "edit": "Изменить"
+    },
+    "qr": {
+      "unsupported": "Неподдерживаемый QR-код"
+    },
+    "submit": {
+      "sending": "Отправляем платёж…",
+      "success": "Оплата прошла",
+      "pending": "Заявка создана. Ожидаем подтверждение",
+      "failed": "Оплата не выполнена"
+    },
+    "otp": {
+      "phone": {
+        "invalid": "Введите корректный номер"
+      },
+      "email": {
+        "invalid": "Введите корректный email"
+      },
+      "sent": "Код отправлен",
+      "rate": "Слишком часто. Попробуйте позже",
+      "code": {
+        "invalid": "Неверный код. Осталось попыток: {{count}}",
+        "expired": "Срок действия кода истёк. Запросите новый"
+      }
+    }
+  },
+  "language": {
+    "title": "Язык",
+    "english": "English",
+    "englishGreeting": "Hello, world!",
+    "russian": "Russian",
+    "russianGreeting": "Привет, мир!"
+  },
+  "actions": {
+    "deposit": "Пополнить",
+    "withdraw": "Вывести",
+    "pay": "Оплатить",
+    "scan": "Сканировать",
+    "confirm": "Подтвердить"
+  },
+  "errors": {
+    "generic": "Произошла ошибка",
+    "network": "Ошибка сети",
+    "validation": "Неверные данные"
+  },
+  "transactionDetail": {
+    "transactionType": "Transaction Type",
+    "method": "Method",
+    "cryptoDeposit": "Crypto Deposit",
+    "amount": "Amount",
+    "status": "Status",
+     "success": "Success"
+  },
+  "referrals": {
+    "yourReferrals": "Ваши рефералы",
+    "yourBonuses": "Ваши бонусы",
+    "howItWorks": "Как это работает",
+    "step1": {
+      "title": "Пригласите друзей",
+      "description": "Поделитесь своей реферальной ссылкой"
+    },
+    "step2": {
+      "title": "Друг регистрируется",
+      "description": "Друг регистрируется и проходит KYC"
+    },
+    "step3": {
+      "title": "Бонус",
+      "description": "Вы оба получаете бонус"
+    },
+    "shareLink": "Поделиться ссылкой",
+    "shareTitle": "Присоединяйтесь к Akuna Pay",
+    "shareText": "Используйте мою реферальную ссылку для регистрации в Akuna Pay",
+    "linkCopied": "Ссылка скопирована"
+  },
+  "menu": {
+    "pro": {
+      "title": "Akuna Pro",
+      "soon": "Скоро",
+      "subtitle": "Консьерж-сервис (в разработке)",
+      "toast": "Скоро: Akuna Pro в разработке"
+    }
+  },
+  "notifications": {
+    "title": "Уведомления",
+    "subtitle": "Выберите, какие оповещения получать",
+    "security": "Безопасность",
+    "security.desc": "Коды входа и вход с нового устройства",
+    "ops": "Операции",
+    "ops.desc": "Платежи и пополнения (успех/ожидание)",
+    "telegram": "Telegram",
+    "telegram.desc": "Получать уведомления в Telegram",
+    "email": "Email",
+    "email.desc": "Получать уведомления на email"
+  },
+  "actions": {
+    "deposit": "Пополнить",
+    "withdraw": "Вывести",
+    "pay": "Оплатить",
+    "scan": "Сканировать",
+    "confirm": "Подтвердить",
+    "save": "Сохранить",
+    "back": "Назад"
+  },
+  "toast": {
+    "saved": "Сохранено",
+    "nochanges": "Без изменений",
+    "error": "Не удалось сохранить",
+    "openlink.error": "Не удалось открыть ссылку"
+  },
+  "support": {
+    "title": "Поддержка",
+    "telegram": "Написать в Telegram",
+    "telegram.desc": "Откроется наш чат поддержки",
+    "email": "Написать на email",
+    "email.desc": "support@akuna-ex.online",
+    "faq": "FAQ",
+    "faq.desc": "Частые вопросы и ответы",
+    "hours": "Мы отвечаем 10:00–19:00 (GMT+7)"
+  }
+}

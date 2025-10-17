@@ -1,40 +1,37 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+import { NextRequest, NextResponse } from 'next/server';
+import { getCorsHeaders } from './server/cors';
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+const intlMiddleware = createMiddleware({
+  // A list of all locales that are supported
+  locales: ['en', 'ru'],
 
-  // Bypass ALL API routes - no middleware interference
-  if (
-    pathname.startsWith('/api/') ||
-    pathname.startsWith('/miniapp') ||
-    pathname.startsWith('/dashboard') ||
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/favicon.ico') ||
-    pathname.startsWith('/static')
-  ) {
-    return NextResponse.next();
+  // Used when no locale matches
+  defaultLocale: 'ru'
+});
+
+export default function middleware(request: NextRequest) {
+  // Handle CORS preflight for all /api/* routes
+  if (request.method === 'OPTIONS' && request.nextUrl.pathname.startsWith('/api')) {
+    const origin = request.headers.get('origin');
+    const corsHeaders = getCorsHeaders(origin);
+    
+    return new Response(null, {
+      status: 200,
+      headers: corsHeaders
+    });
   }
 
-  // Root redirect to dashboard
-  if (pathname === '/') {
-    return NextResponse.redirect(new URL('/dashboard', request.url), 307);
+  // For non-API routes, use the internationalization middleware
+  if (!request.nextUrl.pathname.startsWith('/api')) {
+    return intlMiddleware(request);
   }
 
+  // For API routes, just pass through (CORS headers will be handled by individual routes)
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api/ (all API routes)
-     * - miniapp (telegram mini-app)
-     * - dashboard (main dashboard)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api/|miniapp|dashboard|_next/static|_next/image|favicon.ico|static).*)',
-  ],
+  // Match internationalized pathnames and API routes
+  matcher: ['/', '/(ru|en)/:path*', '/api/:path*']
 };

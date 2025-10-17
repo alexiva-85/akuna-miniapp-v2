@@ -20,6 +20,18 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## ENV & API
+
+### Environment Variables
+- `VITE_API_BASE_URL` is required and comes from Lovable Project → Settings → Environment Variables.
+- All API calls must go through `src/lib/apiClient.ts`
+
+### API Configuration
+The project uses a centralized API client located at `src/lib/apiClient.ts` that:
+- Uses environment variables from `src/config/env.ts`
+- Provides `api()`, `apiJson()`, and `withAuth()` functions
+- Handles URL construction and error handling automatically
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

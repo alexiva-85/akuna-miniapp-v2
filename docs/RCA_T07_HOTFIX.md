@@ -91,3 +91,7 @@ curl -s https://www.akuna-ex.online/dashboard | grep -q "Loading Dashboard" && e
 2. **Тестировать loading states** во всех окружениях
 3. **Мониторить hydration errors** в production
 4. **Добавить UI smoke tests** в CI/CD pipeline
+
+
+
+
